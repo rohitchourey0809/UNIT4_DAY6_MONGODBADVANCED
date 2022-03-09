@@ -1,0 +1,18 @@
+// mongo activated 
+// show dbs
+//use MOVIE
+
+//show collections ---> datamovie
+// show //datamovie document   --> db.data.find().preety({})
+
+Q1----> db.datamovie.find({movie_name:{$eq: "Push"}},{movie_name:1, production_year:1,"_id":0}).preety({})
+Q2-->db.datamovie.find({movie_name:{$ne: "Push"}},{movie_name:1, production_year:1,"_id":0}).pretty({})
+Q3-->db.datamovie.find({$and:[{budget:{$gt:15000}},{budget:{$gte:15000}}]},,{movie_name:1, production_year:1,"_id":0}).pretty() 
+Q4--->db.datamovie.find({$and:[{budget:{$gt:15000}},{budget:{$gte:15000}}]},{movie_name:1, production_year:1,"_id":0}).pretty()
+Q5--->db.datamovie.find({$and:[{production_year:{$gt:2000}},{budget:{$gt:10000}}]},{movie_name:1, production_year:1,"_id":0}).pretty()
+Q6--->db.datamovie.find({$or:[{production_year:{$gt:2000}},{budget:{$gt:10000}}]},{movie_name:1, production_year:1,"_id":0}).pretty()
+Q7---> db.datamovie.find({$nor:[{production_year:{$gt:2000}},{budget:{$gt:10000}}]},{movie_name:1, production_year:1,"_id":0}).pretty()
+Q8--->db.datamovie.find({$or:[{production_year:{$ne:2000}},{budget:{$ne:10000}}]},,{movie_name:1, production_year:1,"_id":0}).pretty()
+Q9--->db.datamovie.find({$or:[{production_year:{$not:{$eq:2000}}},{"budget ":{$not:{$eq:10000}}}]},{movie_name:1, production_year:1,"_id":0}).pretty()
+Q10-->db.datamovie.find({},{movie_name:1,production_year:1,"_id":0}).sort({production_year:-1,"Woman in White, The":1},{movie_name:1, production_year:1,"_id":0},,{movie_name:1, production_year:1,"_id":0}).pretty()
+@11-->db.datamovie.find({},{movie_name:1,production_year:1,"_id":0}).sort({production_year:-1,"Woman in White, The":1},{movie_name:1, production_year:1,"_id":0}).pretty().limit(5).skip(10)
